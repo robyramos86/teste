@@ -14,6 +14,11 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: Pull to hub
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: git pull https://robyramos:$HF_TOKEN@huggingface.co/spaces/robyramos/smart main     
+          
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
