@@ -26,7 +26,7 @@ jobs:
           git remote add hub https://robyramos:$HF_TOKEN@huggingface.co/spaces/robyramos/smart
           git fetch hub
           git merge --allow-unrelated-histories hub/main
-          git rebase --continue --no-edit
+          
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
