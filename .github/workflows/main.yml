@@ -15,7 +15,10 @@ jobs:
           fetch-depth: 0
           lfs: true
       - name: Set git config
-        run: git config --global pull.rebase false
+        run: |
+          git config --global pull.rebase false
+          git config --global user.email "you@example.com"
+          git config --global user.name "Your Name"
       - name: Pull to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
