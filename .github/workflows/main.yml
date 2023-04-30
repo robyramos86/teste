@@ -17,7 +17,7 @@ jobs:
       - name: Pull to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git pull https://robyramos:$HF_TOKEN@huggingface.co/spaces/robyramos/smart main     
+        run: git pull --rebase https://robyramos:$HF_TOKEN@huggingface.co/spaces/robyramos/smart main     
           
       - name: Push to hub
         env:
