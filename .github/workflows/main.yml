@@ -14,11 +14,14 @@ jobs:
         with:
           fetch-depth: 0
           lfs: true
+      - name: Set git config
+        run: git config --global pull.rebase false
       - name: Pull to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
-        run: git pull --rebase https://robyramos:$HF_TOKEN@huggingface.co/spaces/robyramos/smart main     
-          
+        run: |
+          git pull https://robyramos:$HF_TOKEN@huggingface.co/spaces/robyramos/smart main
+          git rebase --continue --no-edit
       - name: Push to hub
         env:
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
